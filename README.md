@@ -30,7 +30,6 @@
 
 ## 開始使用
 
-要開始使用，只需在瀏覽器中打開 `index.html` 文件。為了更好的體驗，建議使用本地 HTTP 伺服器。你可以使用 Python 啟動簡單的 HTTP 伺服器：
+要開始使用，只需在瀏覽器中打開 `ccdc_game.html` 文件。
 
-```bash
-python -m http.server 8000
+
