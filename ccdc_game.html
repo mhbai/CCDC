@@ -11,17 +11,38 @@
             overflow: hidden;
             margin: 0;
             padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
             height: 100vh;
-            position: relative;
+        }
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .game-area {
             width: 1024px;
             margin: 0 auto;
 			background: linear-gradient(to bottom, #e6f7ff, #b3e5ff);
             position: relative;
-            height: 100vh;
+            /*height: 100vh;*/
+			height: 800px;
             border: 1px solid #000;
             overflow: hidden;
+        }
+		.score-area {
+            width: 200px; /* Adjusted width */
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #1e90ff;
+            border-radius: 10px;
+            background-color: #f0f8ff;
+            margin-left: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .container {
             position: absolute;
@@ -38,7 +59,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-			transition: top 2s, background-color 2s;
         }
         .falling-word.arrow::before {
             content: '';
@@ -77,16 +97,19 @@
     </style>
 </head>
 <body>
+<div class="game-container">
     <div class="game-area">
         <div class="container">
             <div class="input-container">
                 <input type="text" id="input" placeholder="" onkeyup="checkInput(event)">
             </div>
-            <div class="result" id="result"></div>
-            <!--button onclick="startGame()">開始遊戲</button-->
         </div>
         <div id="game-over" class="game-over" style="display: none;">Game Over</div>
     </div>
+	<div class="score-area">
+            <div class="result" id="result">得分: 0</div>
+     </div>	
+ </div>
     <script>
         const level1 = '的是一我不有在這個人就了們他來以大會到要為時上說可也中後對生你那好年出都家能國子多地所得很下過自成學麼看然去因之小樣天用沒現心還發而和方面事開作與台長前經當動分如其實她但行於想法裡著起它最道做公些日種民力同點高本常讓定工間新重理外意進表全比水主情只者從文業果部把等候己十什市將兩三像覺跟已無機體回加手老或及知關感美場再物問更化身政度教師次相位月性合應真此名明被二正電才活第話頭車東灣入太內區受提變給西女路特每員氣接今並先代期題金又打品至選非示立原產北吃認少較安保影媽處書平任邊解山由元放別量利通見海結建資直孩走帶目色四程式計完觀總愛使友世五花口造向展近光社望辦南幾始數啊畫風該林醫管各指親信怎難持運何收設馬兒調許整樂清嗎傳議剛張統反講院且未包基交府則病門義務強快百達眾流改住農空報聽請食演卻件界導神呢球往環單服論戰助求滿聲記照習連案視創校需白軍除團形容告希類片共治必參王科斯商命思局便節費轉推決續幫術隊萬找客司質士專黨園眼考制取約言即境謝夠六舉驗投曾早價阿失寫音八步九喜線德歡料歲越輕陳育深字熱母格男縣研爸朋易克陸功落念叫拿底營華組狀離引昨查拉識房條另死妳濟首養土具消象父態精確黃例段究況備藝護布官英領史系響算際香雖集福半規興火周標菜透源七權型味遠準故警里語站慢遊係角歷害稱聯網錢送支鄉根技李斷協圖油紅證城亞超排千須低讀試爾爭甚賽預買供石維笑勢隨錯談夫足獲晚擔景留班製課切增檢顯廣傷苦裝委居掉素吧哪概效待店健般依存紀喔仍善極若溫率防藥修差康據志乎族訴寶顧雙蘭級願嚴細青樹注假壓黑牠古練禮啦配值星令玩久層血息腦初屬巴停號器項餐列群刻羅獨職致似否僅絕拍奇室終簡吸免適陽破積卡置米茶跑察採戲館龍臺療緊腳怕施木速劇痛旅智負模港戶哥微草升換優擊飛票綠突責討復獎印田派策錄限構繼歌補括亮忙朝廠承雄賣退評救河庭倒雨坐減答險皮午岸材盡乾享止企休背臉富訊穿衣酒份密夜塊博衛永殺疑鐵牌波葉村座充弟樓魚互宣姊順降麗圍省恐';
         const level2 = '執登洲竟皇懷歐趣測普童屋呼股春困訪婚武靜竹銀季聞植帝益飯異幸拜吳冷靈移遭急某追肉您症州野島控兵左慈靠唱典舞毒隻銷鐘款威姓擇佳洗勝臨驚災勞句遇紙副席板旁京誰蔡雲街版劉露絲夢判缺購章財江趕右抗堅短筆宗喝洋燈律域宜染衝謂秀雜釋佛鼓船尼睡粉迎漸貴織均守楚危宮努良搭激妹榮壞韓舊畢怪範階核恩納堂訓熟述鎮挑豐介藏曲付監蘇針沙貨牛避跳亂延攝棒玉蓋婦毛蛋附尋含批嘉略競慧患醒築尤敗彩頂媒攻楊散川辛棄餘授融探署藍編輪招額抱架敢吉鮮伯擁漢邀森啟揮夏飲彈麻湯套浪桃圓罪逐審盛隆掌耶奶祖慣徵燒央冰勵觸骨端豆尚愈賴索陣翻迷封障遺慶烈穩溪惡伴雅湖忘震播累嘛妻哈鬆售航盤詩惠尊蟲聚蓮聖床爆爺瑞隔脫幣仁革潮泰歸伊既亡柯糖犯倫巧詞弱幕偏折載牙婆慮橋尺固憶私藉緒鳥廳幹懂刀暴貼耳珍瓜射複哲麵刺誤鏡淨孫肯劃培估狗抽稅束陪賞診序溝申煮兄袋圈頓庫按握績緣甜唯替默勇廢禁仔零訂顆董貝顏搶騎沉紛擺雪呈暗軟暖姐抓戴距泡冠籍損睛析碰桌漂髮操胡癌違輸盟逃擴儀鄭冬純摩幼雞幅奧亦獻硬輩甲秋忍塞梅巨朱貿游紹雷諾捐搖符呀寬緩忠酸屆尾嘴君莫苗蔬舒誠閱淡洪弄牆杯涉惜麥齊咖齡肥丁塑莊池倍賓寧煩稍隱聊敏疾占洛濃娘召圾塔勒跨垃箱哭混縮途偷傑偶彼坦松返虛厚揚援洞輔剩豪飾詢漫旦促予徐憂丟悲廚艾臟抵迫敬礙旗碼欣罰伸刑焦毫末烏繪遍魯篇窗乘嫌映氏臣泥皆寒殊廟槍偉諸堆簽冒啡宅敵漁珠潔租億瓶喊描督鞋借彰陷徒厲裁掛忽薪斤潛巡鍵滑衡嗯遷鄰郭捷汙脈繁坡讚栗踏番膠阻胞虎峰頻鬥鳳谷撞曉沿宇暫稻唐誌凱閒陰豬劑后秘莉捕腸輛拔俗鍋炸嬤奏祝週耕覆液兼耐嚇駕貓吹瑪丈荷汽瓦壽妙礎晨孔掃琴蒙賺拒漲覽跡壁菌鋼柏絡叔甘閉鬼碳炎屏煙擾奪薩宿肌奮側凡嘗乏浮輯丹怒摸柔爬萊鬧鹽侵疫殘貌搬泉譬昌狂颱尖謀託儘傾廿餅搞蜜頁駐剪乳祭尿托郎贏怨醬宋淚曼勤振朗氧濕欲滅裂循戀蠻扮廷闆膚菲澳炒魔乃迪椅檔趙插奉閃刊腿窮敘鼻壯涼擬寄贈貧囉肚腐紐聰瞭俄辭姆橫枝罵鎖跌孤膽帳邦仰祕干胃飽宏哇攤戒挖刷磨胸擦措裏賢舍灰氛憲駛肝悉割仙';
@@ -105,15 +128,14 @@
         let gameInterval;
         let speed = 0.5;
         let stoppedWords = 0;
-		let started = 0;
-		let create_rate=0.5;
-		let max_rate=1;
+	let started = 0;
+	let create_rate=0.5;
+	let max_rate=1;
 
         function startGame() {
             score = 0;
             stoppedWords = 0;
             speed = 0.5;
-            document.getElementById('result').innerText = '';
             document.getElementById('input').value = '';
             document.getElementById('game-over').style.display = 'none';
             fallingWords = [];
@@ -150,7 +172,8 @@
         function updateFallingWords() {
             fallingWords.forEach((wordElement, index) => {
                 let top = parseFloat(wordElement.style.top);
-                if (top < window.innerHeight - 50) {
+				let max = document.querySelector('.game-area').getBoundingClientRect().top+document.querySelector('.game-area').getBoundingClientRect().height-120;
+                if (top < max) {
                     wordElement.style.top = top + speed + 'px';
                 } else {
                     if (wordElement.style.backgroundColor !== 'red') {
@@ -168,10 +191,10 @@
         }
 
         function checkInput(event) {
-		    if(started==0){
-			    started=1;
-				startGame();
-			}
+	    if(started==0){
+		started=1;
+		startGame();
+	    }
             if (event.key === ' ') {
                 const input = document.getElementById('input').value.trim();
                 let matched = false;
@@ -193,9 +216,9 @@
                 document.getElementById('input').value = '';
                 // 提高速度
                 speed += 0.01;
-				if(create_rate< max_rate){
-					create_rate+=0.01;
-				}
+		if(create_rate< max_rate){
+		    create_rate+=0.01;
+		}
             }
         }
 
