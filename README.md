@@ -1,5 +1,6 @@
 # 中文輸入法練習程式：漢字落地挑戰 (Chinese Character Drop Challenge)
 ![](game.png)
+
 ## 說明
 
 "漢字落地挑戰 (Chinese Character Drop Challenge, CCDC)" 是一款中文打字練習遊戲。模仿 win95 的打字遊戲。
